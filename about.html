@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISH Nails | About Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/custom.css"> <!-- ADD THIS -->
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo fade-in">
+                <h1>ISH Nails</h1>
+            </div>
+            <nav>
+                <ul class="nav-links slide-in-right">
+                    <li><a href="index.html">Login Form</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html" class="btn-book">Book Now</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="page-banner" style="background-image: url('images/about (2).jpg'); background-size: cover; background-position: center;">
+                <h1 class="fade-in">About Us</h1>
+            </section>
+
+            <section class="about-section">
+                <div class="about-content fade-in">
+                    <h2>Our Story</h2>
+                    <p>Ish Nails was founded in 2010 with a simple mission: to provide exceptional nail care services in a relaxing and luxurious environment. What started as a small salon with just two nail technicians has grown into a premier nail destination with a team of skilled professionals dedicated to making you look and feel your best.</p>
+                    
+                    <!--<div class="about-image slide-in-left">
+                        <img src="img/salon-interior.jpg" alt="Salon Interior">
+                    </div>-->
+                    <video controls width="1100" autoplay muted loop>
+                        <source src="images/office-video.mp4" type="video/mp4" alt="Salon Interior">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    <h2>Our Philosophy</h2>
+                    <p>At Ish Nails, we believe that beauty treatments should be more than just a service—they should be an experience. We are committed to using only the highest quality products and staying up-to-date with the latest trends and techniques in nail artistry.</p>
+                    
+                    <h2>Our Promise</h2>
+                    <p>We promise to provide a clean, safe, and welcoming environment for all our clients. Our tools are sterilized after each use, and we follow strict hygiene protocols to ensure your safety and comfort. We take pride in our attention to detail and personalized service, ensuring that each client leaves our salon feeling pampered and satisfied.</p>
+                </div>
+                
+                <div class="stats-container bounce-in">
+                    <div class="stat-box">
+                        <h3>15+</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>20k+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>15</h3>
+                        <p>Expert Staff</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>50+</h3>
+                        <p>Nail Designs</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Ish Nails</h2>
+                    <p>Your beauty is our passion</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="staff.html">Staff</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>123 Beauty Street,Rajkot</p>
+                    <p>Phone: (+91)9876543210</p>
+                    <p>Email: ish@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ish Nails. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

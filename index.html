@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISH Nails</title>
+    <link rel="stylesheet" href="./style2.css">
+    <style>
+        /* Custom Checkbox Style */
+        .custom-checkbox {
+            display: inline-block;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Hide the default checkbox */
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Custom Checkbox Indicator */
+        .checkmark {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            background: transparent;
+        }
+
+        /* Show tick when checkbox is checked */
+        .custom-checkbox input:checked + .checkmark::after {
+            content: '✔';
+            position: absolute;
+            left: 3px;
+            top: -1px;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        /* Add space below Password field */
+        .inputBox + .remember-container {
+            margin-top: 20px;
+        }
+
+        /* Space between Remember Me and Forgot Password */
+        .remember-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* Add space below the Remember Me section */
+        .remember-container + .inputBox {
+            margin-top: 20px;
+        }
+
+        /* Social Media Buttons */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-buttons button {
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-buttons .google {
+            background-color: #db4437;
+        }
+
+        .social-buttons .facebook {
+            background-color: #4267B2;
+        }
+
+        .social-buttons .twitter {
+            background-color: #1DA1F2;
+        }
+
+        /* Toggle between Login and Registration */
+        .toggle-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .toggle-form a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Login Button */
+        .inputBox input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .inputBox input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body onload="loadRememberedUser()">
+    <section>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="square" style="--i:0;"></div>
+            <div class="square" style="--i:1;"></div>
+            <div class="square" style="--i:2;"></div>
+            <div class="square" style="--i:3;"></div>
+            <div class="square" style="--i:4;"></div>
+            <div class="container">
+                <div class="form" id="loginForm">
+                    <h2>Login Form</h2>
+                    <form action="login.php" method="POST">
+                        <div class="inputBox">
+                            <input type="text" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" placeholder="Password" name="password" required>
+                        </div>
+                        <div class="remember-container">
+                            <label class="custom-checkbox">
+                                Remember me
+                                <input type="checkbox" id="rememberMe">
+                                <span class="checkmark"></span>
+                            </label>
+                            <span><a href="#" class="forgot-pass" onclick="forgotPassword()">Forgot Password</a></span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Login">
+                        </div>
+                    </form>
+                    <div class="social-buttons">
+                        <button class="google" onclick="signInWithGoogle()">G</button>
+                        <button class="facebook" onclick="signInWithFacebook()">F</button>
+                        <button class="twitter" onclick="signInWithTwitter()">T</button>
+                    </div>
+                    <p class="toggle-form">Don't have an account? <a href="#" onclick="toggleForm('registerForm')">Sign Up</a></p>
+                </div>
+
+                <div class="form" id="registerForm" style="display: none;">
+                    <h2>Registration Form</h2>
+                    <form action="register.php" method="POST">
+                        <div class="inputBox">
+                            <input type="text" id="regUsername" name="regUsername" placeholder="Username" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="email" id="regEmail" name="regEmail" placeholder="Email" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" id="regPassword" name="regPassword" placeholder="Password" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" id="regPassword" name="regPassword" placeholder="ConformPassword" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" value="Register">
+                        </div>
+                    </form>
+                    <div class="social-buttons">
+                        <button class="google" onclick="signInWithGoogle()">G</button>
+                        <button class="facebook" onclick="signInWithFacebook()">F</button>
+                        <button class="twitter" onclick="signInWithTwitter()">T</button>
+                    </div>
+                    <p class="toggle-form">Already have an account? <a href="#" onclick="toggleForm('loginForm')">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Load remembered username
+        function loadRememberedUser() {
+            const savedUsername = localStorage.getItem('username');
+            if (savedUsername) {
+                document.getElementById('username').value = savedUsername;
+                document.getElementById('rememberMe').checked = true;
+            }
+        }
+
+        // Handle Remember Me logic
+        function handleRememberMe(event) {
+            const username = document.getElementById('username').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            if (rememberMe) {
+                localStorage.setItem('username', username);
+            } else {
+                localStorage.removeItem('username');
+            }
+        }
+
+        // Forgot Password
+        function forgotPassword() {
+            alert("Please contact support to reset your password.");
+        }
+
+        // Toggle between Login and Registration forms
+        function toggleForm(formId) {
+            document.getElementById('loginForm').style.display = formId === 'loginForm' ? 'block' : 'none';
+            document.getElementById('registerForm').style.display = formId === 'registerForm' ? 'block' : 'none';
+        }
+
+        // Handle Registration
+        function handleRegistration(event) {
+            event.preventDefault();
+            alert("Registration successful!");
+            toggleForm('loginForm');
+        }
+
+        // Social Media Sign-In (Placeholder functions)
+        function signInWithGoogle() {
+            alert("Sign in with Google clicked!");
+        }
+
+        function signInWithFacebook() {
+            alert("Sign in with Facebook clicked!");
+        }
+
+        function signInWithTwitter() {
+            alert("Sign in with Twitter clicked!");
+        }
+    </script>
+</body>
+<p><a href="logout.php">Logout</a></p>
+
+</html>

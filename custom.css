@@ -1,0 +1,13 @@
+body {
+    background-color: #fff;
+    color: #000;
+}
+
+h1, h2, h3 {
+    color: #cc3366;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
